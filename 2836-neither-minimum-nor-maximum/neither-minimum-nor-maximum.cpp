@@ -5,18 +5,28 @@ public:
         {
             return -1;
         }
-        sort(nums.begin(), nums.end());
-
-        int maxNum = *max_element(nums.begin(), nums.end());
-        int minNum = *min_element(nums.begin(), nums.end());
-
         for (int i = 0; i < nums.size(); i++)
         {
-            if (nums[i] != maxNum && nums[i] != minNum )
+            int key = nums[i];
+            int j = i - 1;
+            
+            while(j >= 0 && nums[j] > key)
             {
-                return nums[i];
+                nums[j + 1] = nums[j];
+                j--;
             }
+        nums[j + 1] = key;
+    }
+    
+    int maxNum = nums[nums.size() - 1];
+    int minNum = nums[0];
+    for (int i = 0; i < nums.size(); i++)
+    {
+        if (nums[i] != maxNum && nums[i] != minNum)
+        {
+            return nums[i];
         }
+    }
         return -1;
     }
 };
