@@ -3,7 +3,7 @@ public:
     void dijkstra(char source, unordered_map<char, vector<pair<char, int>>> &adj, vector<vector<long long>> &costMatrix) {
         priority_queue<pair<int, char>, vector<pair<int, char>>, greater<pair<int, char>>> pq;
         pq.push({0, source});
-        costMatrix[source - 'a'][source - 'a'] = 0;  // Distance to itself is 0
+        costMatrix[source - 'a'][source - 'a'] = 0;
 
         while (!pq.empty()) {
             int d = pq.top().first;
