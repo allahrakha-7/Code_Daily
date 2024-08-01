@@ -5,21 +5,15 @@ public:
             return false;
         }
 
-        unordered_map<char, int> frequencyS, frequencyT;
-        for (char c: s) {
-            frequencyS[c]++;
+        unordered_map<char, int> umap;
+        for (char c : s) {
+            umap[c]++;
         }
-
-        for (char c: t) {
-            frequencyT[c]++;
-        }
-
-        for (const auto& pair : frequencyS) {
-            char c = pair.first;
-            if (frequencyT.find(c) == frequencyT.end() || frequencyT[c] != pair.second)
-                {
-                    return false;
+        for (char c : t) {
+            if (umap.find(c) == umap.end() || umap[c] == 0) {
+                return false;
                 }
+                umap[c]--;
             }
         return true;
     }
