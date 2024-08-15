@@ -20,7 +20,7 @@ public:
                 res = one + zero;
             } else {
                 int idx = diff_index[one - zero];
-                res = std::max(res, i - idx);
+                res = max(res, i - idx);
             }
         }
         return res;
