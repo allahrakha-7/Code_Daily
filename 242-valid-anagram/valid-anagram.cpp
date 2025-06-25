@@ -5,16 +5,18 @@ public:
             return false;
         }
 
-        unordered_map<char, int> umap;
+        unordered_map<char, int> freq_map;
+
         for (char c : s) {
-            umap[c]++;
+            freq_map[c]++;
         }
+
         for (char c : t) {
-            if (umap.find(c) == umap.end() || umap[c] == 0) {
+            if (freq_map.find(c) == freq_map.end() || freq_map[c] == 0) {
                 return false;
-                }
-                umap[c]--;
             }
+            freq_map[c]--;
+        }
         return true;
     }
 };
