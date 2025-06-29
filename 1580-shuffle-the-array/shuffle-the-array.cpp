@@ -2,17 +2,13 @@ class Solution {
 public:
     vector<int> shuffle(vector<int>& nums, int n) {
         vector<int> shuffledArray (2 * n);
+        int index = 0;
 
-        for (int i = 0; i < nums.size(); i++) {
+        for (int i = 0; i < n; i++) {
 
-            if (i % 2 == 0) {
-
-                shuffledArray[i] = nums[i / 2];
-            
-            } else {
-
-                shuffledArray[i] = nums[n + i / 2];
-            }
+            shuffledArray[index] = nums[i];
+            shuffledArray[index + 1] = nums[n + i];
+            index = index + 2;
         }
         return shuffledArray;
     }
