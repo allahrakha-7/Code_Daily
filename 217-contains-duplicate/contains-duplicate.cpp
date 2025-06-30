@@ -8,14 +8,10 @@ public:
             if (umap.find(num) != umap.end()) {
 
                 return true;
-
             }
 
             umap[num] = 1;
-       
         }
-
         return false;
-    
     }
 };
