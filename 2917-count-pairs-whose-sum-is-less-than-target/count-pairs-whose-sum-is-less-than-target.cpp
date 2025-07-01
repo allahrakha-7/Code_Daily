@@ -6,6 +6,7 @@ public:
             return 0;
         }
 
+        // sorting the array
         sort(nums.begin(), nums.end());
     
         int pairs = 0;
