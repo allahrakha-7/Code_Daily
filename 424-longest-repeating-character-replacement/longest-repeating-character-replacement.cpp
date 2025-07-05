@@ -1,36 +1,25 @@
 class Solution {
 public:
     int characterReplacement(string s, int k) {
-        
+
+        unordered_map<char, int> count;
+
         int left = 0;
-        int maxLength = 0;
         int maxFreq = 0;
-        
-        unordered_map<char, int> charCount;
+        int maxLength = 0;
 
         for (int right = 0; right < s.size(); right++) {
 
-            char character = s[right];
+            count[s[right]]++;
 
-            charCount[character] = charCount[character] + 1;
+            maxFreq = max(maxFreq, count[s[right]]);
 
-            maxFreq = max(maxFreq, charCount[character]);
+            if (right - left + 1 - maxFreq > k) {
 
-            int windowSize = right - left + 1;
-
-            int charsToReplace = windowSize - maxFreq;
-
-            if (charsToReplace > k) {
-
-                char leftChar = s[left];
-
-                charCount[leftChar] = charCount[leftChar] - 1;
-
-                left = left + 1;
+                count[s[left]]--;
+                left++;
             }
-
-            windowSize = right - left + 1;
-            maxLength = max(maxLength, windowSize);
+            maxLength = max(maxLength, right - left + 1);
         }
         return maxLength;
     }
