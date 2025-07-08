@@ -1,18 +1,13 @@
 class Solution {
 public:
-    // bool solve(int n, int p) {
-
-    //     int result = pow(2, p);
-        
-    //     if (result == n) return true;
-        
-    //     if (result > n) return false;
-        
-    //     return solve(n, p + 1);
-    // }
-
     bool isPowerOfTwo(int n) {
-        
-        return n > 0 && (n & (n - 1)) == 0;
+        //base case
+        if (n == 1) return true;
+
+        // check if n less than or equal to 0 and modulus of n is not equal to 0
+        if (n <= 0 || n % 2 != 0) return false;
+
+        // recursive call
+        return isPowerOfTwo(n / 2);
     }
 };
