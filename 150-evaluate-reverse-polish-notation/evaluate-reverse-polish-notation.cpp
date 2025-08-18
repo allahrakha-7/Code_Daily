@@ -25,7 +25,6 @@ public:
                 st.push(a / b);
             }
             else {
-                // It's a number
                 st.push(stoi(token));
             }
         }
