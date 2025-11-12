@@ -1,20 +1,23 @@
 class Solution {
 public:
     vector<string> sortPeople(vector<string>& names, vector<int>& heights) {
-       vector<pair<int, string>> nameHeightPair;
+        
+        vector<pair<int, string>> peopleNames (names.size());
 
-       for (size_t i = 0; i < names.size(); i++)
-       {
-            nameHeightPair.push_back({heights[i], names[i]});
-       }
+        for (int i = 0; i < names.size(); i++) {
 
-       sort(nameHeightPair.rbegin(), nameHeightPair.rend());
+            peopleNames[i] = { heights[i], names[i] };
 
-       vector<string> sortedPeople;
-       for (size_t i = 0; i < names.size(); i++)
-       {
-            sortedPeople.push_back(nameHeightPair[i].second);
-       }
-       return sortedPeople;
+        }
+
+        sort(peopleNames.rbegin(), peopleNames.rend());
+
+        vector<string> sortedNames (names.size());
+
+        for (int i = 0; i < names.size(); i++ ) {
+
+            sortedNames[i] = peopleNames[i].second;
+        }
+        return sortedNames;
     }
 };
